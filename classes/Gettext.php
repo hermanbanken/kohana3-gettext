@@ -1,6 +1,6 @@
 <?php
 
-class Gettext_Core
+class Gettext
 {
 	public static $config;
 
@@ -286,8 +286,8 @@ class Gettext_Core
 	 */
 	protected function __construct()
 	{
-		Gettext::$config = Kohana::config('gettext');
-
+		Gettext::$config = Kohana::$config->load('gettext');
+		
 		if (Gettext::$config['regenerate_var'] AND isset($_GET[Gettext::$config['regenerate_var']]))
 		{
 			// Regenerate language files
